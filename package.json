@@ -15,6 +15,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
+    "subscriptions-transport-ws": "^0.9.18",
     "web-vitals": "^0.2.4"
   },
   "lint-staged": {
@@ -32,7 +33,17 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "rules": {
+      "max-len": 2,
+      "import/no-named-as-default": 0,
+      "import/no-anonymous-default-export": [
+        "error",
+        {
+          "allowObject": true
+        }
+      ]
+    }
   },
   "husky": {
     "hooks": {
