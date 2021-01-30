@@ -35,6 +35,7 @@
       "react-app/jest"
     ],
     "rules": {
+      "max-len": "warn",
       "import/no-named-as-default": 0,
       "import/no-anonymous-default-export": [
         "error",

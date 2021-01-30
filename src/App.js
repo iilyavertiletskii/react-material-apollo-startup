@@ -1,7 +1,13 @@
 import React from 'react';
 import { getMainDefinition } from '@apollo/client/utilities';
 import { WebSocketLink } from '@apollo/client/link/ws';
-import { ApolloProvider, ApolloClient, InMemoryCache, HttpLink, split } from '@apollo/client';
+import {
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  HttpLink,
+  split,
+} from '@apollo/client';
 import config from './Config';
 
 const httpLink = new HttpLink({
@@ -19,7 +25,10 @@ const splitLink = split(
   ({ query }) => {
     const definition = getMainDefinition(query);
 
-    return definition.kind === 'OperationDefinition' && definition.operation === 'subscription';
+    return (
+      definition.kind === 'OperationDefinition' &&
+      definition.operation === 'subscription'
+    );
   },
   wsLink,
   httpLink,
